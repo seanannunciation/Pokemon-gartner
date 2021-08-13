@@ -1,0 +1,27 @@
+.poke-img{
+    width: 50%;
+    height: 50%;
+}
+
+.table{
+    align-items: center;
+}
+
+th{
+    background-color: lightgrey;
+    vertical-align: baseline;
+}
+
+td{
+    vertical-align: baseline;
+}
+
+tr {
+    line-height: 15px;
+    min-height: 15px;
+    height: 15px;
+ }
+
+ .search-results p{
+    vertical-align: baseline;
+ }
