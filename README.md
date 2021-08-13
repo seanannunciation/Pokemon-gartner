@@ -1,27 +1,21 @@
 # GartnerPokemon
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.20.
+Once the repository has been cloned, to install dependencies
 
-## Development server
+In the terminal,
+execute 'npm install'
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Once all dependencies are installed run 'ng serve' in the terminal
+Navigate to `http://localhost:4200/` The page should be displayed
 
-## Code scaffolding
+--In the query type bar, enter the pokemon type value and click 'Add Pokemon' button
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+If a valid type is entered the data is stored in the local storage and loaded instantly in the table displayed below the search bar.
 
-## Build
+To search for a pokemon from the displayed/stored data, enter a pokemon name in the search bar above the displayed table.
+The search results are displayed in the table below
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+-The icon next to the pokemon name in the table links to a new tab of the pokemon
+-A pokemon record can be deleted from the storage by clicking on the cancel/close button displayed to the right end of each row.
+-To load more pokemons to the storage enter a type query in the bar at the top of the page and click 'Add Pokemon'. The table displays all records from the storage and updates existing records that have the same name as the new records.
+-The 'Name' of the pokemons in the table is editable - To edit, click on the name input and enter a desired name. Press Enter to save the modifed name to storage. Empty name values are not saved.
