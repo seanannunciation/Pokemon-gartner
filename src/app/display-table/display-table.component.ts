@@ -23,6 +23,8 @@ export class DisplayTableComponent implements OnInit {
   tableData:PokemonTable[] =[];
   saveEnable = false;
   editIndex = null;
+  columnKey: string = 'name';
+  descOrder: boolean = false;
 
   constructor() { }
 
@@ -80,9 +82,20 @@ export class DisplayTableComponent implements OnInit {
     }
   }
 
+  save(pokemon, event) {
+    console.log(pokemon);
+    console.log(event);
+  }
 
   updateTable( tableData: PokemonTable[] ) {
     window.localStorage.setItem('QuerySearch', JSON.stringify(tableData));
+  }
+
+
+  onSort(column){
+    
+    this.columnKey = column;
+    this.descOrder = !this.descOrder ;
   }
 
 }

@@ -1,45 +1,45 @@
-    <div class="row">
-        <div class="form-group has-search col-4">
-            <i class="fas fa-search" aria-hidden="true"></i>
-            <input type="text" class="form-control" id="searchStorage" (keyup)="searchPokemon($event)"
-                [(ngModel)]="searchStorage" placeholder="Search Pokemon">
-        </div>
-        <div class="search-results">
-            <p *ngIf="storageTable?.length>0"><i>{{ search ? searchCount : storageTable?.length  }} of {{ storageTable?.length }} Pokemon</i></p>
-        </div>
+<div class="row">
+    <div class="form-group has-search col-4">
+        <i class="fas fa-search" aria-hidden="true"></i>
+        <input type="text" class="form-control" id="searchStorage" (keyup)="searchPokemon($event)"
+            [(ngModel)]="searchStorage" placeholder="Search Pokemon">
     </div>
-    
-    <div>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Sprite</th>
-                    <th scope="col"></th>
-                    <th scope="col" sortable="name" (sort)="sort($event)">Name</th>
-                    <th scope="col" sortable="type">Type(s)</th>
-                    <th scope="col" sortable="moves">Number of moves</th>
-                    <th scope="col"></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let pokemon of pokemonTable; let i=index">
-                    <td>
-                        <img [src]="pokemon.img" class="mr-2 poke-img bi bi-upload ">
-                    </td>
-                    <td>
-                        <a [href]="pokemon.url" target="_blank" class="icons-sm"><i class="bi bi-upload"></i></a>
-                    </td>
-                    <td>
-                        <input type="text" class="form-control" (keyup.enter)="updateRow(pokemon,i, $event)"
-                            [value]="pokemon.name">
-                    </td>
-                    <td>{{ pokemon.type }}</td>
-                    <td>{{ pokemon.moves }}</td>
-                    <td>
-                        <a class="icons-sm" (click)="remove(pokemon)"><i class="bi bi-x-circle-fill"></i></a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="search-results">
+        <p *ngIf="storageTable?.length>0"><i>{{ search ? searchCount : storageTable?.length  }} of {{ storageTable?.length }} Pokemon</i></p>
     </div>
+</div>
+
+<div> 
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Sprite</th>
+                <th scope="col"></th>
+                <th scope="col"  (click)="onSort('name')">Name</th>
+                <th scope="col" (click)="onSort('type')">Type(s)</th>
+                <th scope="col" (click)="onSort('moves')">Number of moves</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let pokemon of pokemonTable | orderBy: columnKey : descOrder; let i=index">
+                <td>
+                    <img [src]="pokemon.img" class="mr-2 poke-img bi bi-upload ">
+                </td>
+                <td>
+                    <a [href]="pokemon.url" target="_blank" class="icons-sm"><i class="bi bi-upload"></i></a>
+                </td>
+                <td>
+                    <input type="text" class="form-control" (keyup.enter)="updateRow(pokemon,i, $event)"
+                        [value]="pokemon.name">
+                </td>
+                <td>{{ pokemon.type }}</td>
+                <td>{{ pokemon.moves }}</td>
+                <td>
+                    <a class="icons-sm" (click)="remove(pokemon)"><i class="bi bi-x-circle-fill"></i></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
